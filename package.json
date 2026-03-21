@@ -1,0 +1,15 @@
+{
+  "name": "truthmarket",
+  "version": "1.0.0",
+  "description": "Manipulation-proof prediction markets using GenLayer AI consensus",
+  "private": true,
+  "scripts": {
+    "deploy": "genlayer deploy",
+    "deploy:bradbury": "genlayer network testnet-bradbury && genlayer deploy",
+    "studio": "genlayer studio"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "genlayer-js": "^0.23.0"
+  }
+}
