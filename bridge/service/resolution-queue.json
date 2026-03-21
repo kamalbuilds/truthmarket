@@ -1,0 +1,25 @@
+{
+  "jobs": [
+    {
+      "id": "resolve_6b5584c5_1765998000000",
+      "contractAddress": "0x9C97BF7E48E8D4EEb079912ae87175706b5584c5",
+      "endDate": "2025-12-17T19:00:00.000Z",
+      "marketTitle": "Test Market Resolution",
+      "status": "completed",
+      "createdAt": "2025-12-17T18:54:48.852Z",
+      "cronJobId": "cron_resolve_6b5584c5_1765998000000",
+      "executedAt": "2025-12-17T19:00:06.298Z"
+    },
+    {
+      "id": "resolve_7A8336d7_1766057880000",
+      "contractAddress": "0x0C69f445251aB25a80779771AA8074077A8336d7",
+      "endDate": "2025-12-18T11:38:00.000Z",
+      "marketTitle": "$BTC above 88,000$ on Dec, 18 at 12:38?",
+      "status": "completed",
+      "createdAt": "2025-12-18T11:35:14.332Z",
+      "cronJobId": "cron_resolve_7A8336d7_1766057880000",
+      "executedAt": "2025-12-18T11:38:06.488Z"
+    }
+  ],
+  "version": "1.0"
+}
