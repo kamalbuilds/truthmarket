@@ -27,8 +27,8 @@ const DEMO_MARKETS: MarketInfo[] = [
     total_side_a: 15000,
     total_side_b: 8500,
     total_pool: 23500,
-    probability_a: 0.6383,
-    probability_b: 0.3617,
+    probability_a_pct: 64,
+    probability_b_pct: 36,
     is_resolved: false,
     is_cancelled: false,
     winning_side: "",
@@ -50,8 +50,8 @@ const DEMO_MARKETS: MarketInfo[] = [
     total_side_a: 4200,
     total_side_b: 6800,
     total_pool: 11000,
-    probability_a: 0.3818,
-    probability_b: 0.6182,
+    probability_a_pct: 38,
+    probability_b_pct: 62,
     is_resolved: false,
     is_cancelled: false,
     winning_side: "",
@@ -74,8 +74,8 @@ const DEMO_MARKETS: MarketInfo[] = [
     total_side_a: 2100,
     total_side_b: 18900,
     total_pool: 21000,
-    probability_a: 0.1,
-    probability_b: 0.9,
+    probability_a_pct: 10,
+    probability_b_pct: 90,
     is_resolved: false,
     is_cancelled: false,
     winning_side: "",
@@ -284,12 +284,79 @@ export default function Home() {
         )}
       </section>
 
-      {/* How it works */}
+      {/* How it works: side-by-side flow comparison */}
       <section className="border-t border-border/40 bg-muted/20">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h3 className="text-xl font-semibold mb-8">
-            Why AI Resolution is Better
-          </h3>
+        <div className="mx-auto max-w-6xl px-4 py-12 space-y-10">
+          <h3 className="text-xl font-semibold">How Resolution Works</h3>
+
+          {/* Flow comparison diagram */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Polymarket flow */}
+            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-5 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-red-400 uppercase tracking-wider">
+                  Polymarket / UMA
+                </span>
+                <span className="text-xs bg-red-500/10 text-red-400 border border-red-500/20 rounded px-1.5 py-0.5 font-medium">
+                  Manipulable
+                </span>
+              </div>
+              <div className="space-y-2">
+                {[
+                  { icon: "❶", label: "Market expires", note: "Trading halted" },
+                  { icon: "❷", label: "Anyone can dispute", note: "Requires UMA tokens" },
+                  { icon: "❸", label: "Token-weighted vote", note: "Whales dominate" },
+                  { icon: "❹", label: "Resolution outcome", note: "Can be bought" },
+                  { icon: "❺", label: "Funds distributed", note: "Winners paid out" },
+                ].map((step, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="text-base w-6 shrink-0">{step.icon}</span>
+                    <div className="flex-1 flex items-center justify-between rounded-lg border border-red-500/15 bg-card/50 px-3 py-2">
+                      <span className="text-sm font-medium">{step.label}</span>
+                      <span className="text-xs text-red-400/80 font-mono">{step.note}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground pt-1">
+                A whale holding enough UMA tokens can vote for any outcome — even false ones.
+              </p>
+            </div>
+
+            {/* TruthMarket flow */}
+            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-5 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-emerald-400 uppercase tracking-wider">
+                  TruthMarket / GenLayer
+                </span>
+                <span className="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded px-1.5 py-0.5 font-medium">
+                  Trustless
+                </span>
+              </div>
+              <div className="space-y-2">
+                {[
+                  { icon: "❶", label: "Market expires", note: "Trading halted" },
+                  { icon: "❷", label: "AI validators triggered", note: "Automatic, no tokens" },
+                  { icon: "❸", label: "Each fetches real data", note: "GPT + Claude + Llama" },
+                  { icon: "❹", label: "Equivalence consensus", note: "Math, not votes" },
+                  { icon: "❺", label: "Funds auto-distributed", note: "Reasoning on-chain" },
+                ].map((step, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="text-base w-6 shrink-0">{step.icon}</span>
+                    <div className="flex-1 flex items-center justify-between rounded-lg border border-emerald-500/15 bg-card/50 px-3 py-2">
+                      <span className="text-sm font-medium">{step.label}</span>
+                      <span className="text-xs text-emerald-400/80 font-mono">{step.note}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground pt-1">
+                No token accumulation possible. Each validator is independent. Truth is determined by data, not wealth.
+              </p>
+            </div>
+          </div>
+
+          {/* Why it matters: 3-column cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="p-5 space-y-3">
               <div className="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-mono font-bold">

@@ -25,8 +25,8 @@ export type MarketInfo = {
   total_side_a: number;
   total_side_b: number;
   total_pool: number;
-  probability_a: number;
-  probability_b: number;
+  probability_a_pct: number;
+  probability_b_pct: number;
   is_resolved: boolean;
   is_cancelled: boolean;
   winning_side: string;
@@ -42,9 +42,9 @@ export type UserPosition = {
 };
 
 export type MarketOdds = {
-  side_a_probability: number;
-  side_b_probability: number;
-  side_a_payout_ratio: number;
-  side_b_payout_ratio: number;
+  side_a_pct: number;
+  side_b_pct: number;
+  side_a_payout_bps: number;
+  side_b_payout_bps: number;
   total_pool: number;
 };
