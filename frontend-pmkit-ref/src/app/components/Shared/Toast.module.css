@@ -1,0 +1,43 @@
+.toast {
+    background: #111827;
+    color: #f9fafb;
+    padding: 10px 14px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    font-size: 13px;
+    z-index: 9999;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+    opacity: 0;
+    transform: translateY(-8px);
+    animation: toastSlide 0.3s ease forwards;
+}
+
+.success {
+    background: #065f46;
+}
+
+.error {
+    background: #991b1b;
+}
+
+.warning {
+    background: #92400e;
+}
+
+.info {
+    background: #111827;
+}
+
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,36 @@
+.chartSection {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e4e4e7;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.chartValue {
+    font-size: 24px;
+    font-weight: 700;
+    color: #007aff;
+}
+
+.timeTabs {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 0;
+    border: 1px solid #e4e4e7;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.timeTab {
+    padding: 4px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #52525b;
+    font-weight: 500;
+}
+
+.timeTabActive {
+    background: #000;
+    color: #fff;
+}

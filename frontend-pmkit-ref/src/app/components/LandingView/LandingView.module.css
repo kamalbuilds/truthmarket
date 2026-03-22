@@ -1,0 +1,384 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    height: 100%;
+    width: 100%;
+    padding: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.infoPanel {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Removed Prophet Card Styles */
+
+/* The Market Focus Card (Right side) */
+.marketFocusCard {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    width: 440px;
+    height: 75vh;
+    min-height: 600px;
+    /* Fixed height to match prophet card approx */
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* Allow scrolling content */
+}
+
+.skeletonCard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background: #f3f4f6;
+    overflow: hidden;
+}
+
+.shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(243,244,246,0) 0%, rgba(209,213,219,0.6) 50%, rgba(243,244,246,0) 100%);
+    transform: translateX(-100%);
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* Header styles matching MarketCard */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-sm);
+}
+
+.headerLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+}
+
+.titleGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    background: #f59e0b;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    flex-grow: 1;
+    margin: 0;
+}
+
+.addressRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.addressText {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.copyBtn {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: #f9fafb;
+    padding: 2px 6px;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+}
+
+/* Hide scrollbar for cleaner look but allow scroll */
+.marketFocusCard::-webkit-scrollbar {
+    width: 6px;
+}
+
+.marketFocusCard::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.marketFocusCard::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.marketHeader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+.glowDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    display: inline-block;
+    animation: pulse-green 2s infinite;
+}
+
+.marketTabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /* Reduced gap between chevrons and viewport */
+}
+
+.carouselViewport {
+    width: 320px;
+    /* Approx 3 items * (90px + 10px gap) */
+    overflow: hidden;
+    position: relative;
+    padding: 2px 0;
+    /* Space for glow */
+}
+
+.carouselTrack {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    transition: background 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100px;
+    /* Fixed width for smooth calc */
+    flex-shrink: 0;
+    justify-content: center;
+    cursor: pointer;
+    /* Ensure pointer */
+    user-select: none;
+}
+
+.navItem:hover {
+    background: #f4f4f5;
+}
+
+.moreMarkets {
+    color: #999;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100px;
+    flex-shrink: 0;
+    margin-top: 6px;
+}
+
+.moreMarkets:hover {
+    color: #000;
+}
+
+.chevronBtn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #888;
+    transition: all 0.2s;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chevronBtn:hover {
+    background: #f4f4f5;
+    color: #000;
+}
+
+.marketTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.priceDisplay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.currentPrice {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.timeRemaining {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.focusGraph {
+    height: 120px;
+    background: #fafafa;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    /* Placeholder for graph */
+    position: relative;
+}
+
+.timeRangeTabs {
+    display: flex;
+    background: #f4f4f5;
+    border-radius: var(--radius-sm);
+    padding: 2px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.trTab {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.trActive {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.actionButtons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.actionBtn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnAbove {
+    background-color: #22c55e;
+}
+
+.btnBelow {
+    background-color: #ef4444;
+    /* or Orange-Red */
+    background-color: #fca5a5;
+    /* wait image shows distinct Red/Orange */
+    background-color: #ea580c;
+    /* Orange 600 */
+}
+
+.sentiment {
+    margin-top: var(--spacing-lg);
+}
+
+.sentimentBar {
+    height: 6px;
+    width: 100%;
+    background: #eee;
+    border-radius: 3px;
+    display: flex;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: var(--spacing-md);
+    }
+
+    .infoPanel {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .marketFocusCard {
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+
+    .marketFocusCard {
+        padding: 16px;
+    }
+}

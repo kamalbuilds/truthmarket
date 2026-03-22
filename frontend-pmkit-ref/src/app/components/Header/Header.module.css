@@ -1,0 +1,87 @@
+.header {
+    height: 64px;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-lg);
+    background-color: #ffffff;
+    /* Explicit white header */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.navItem {
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 8px 0;
+}
+
+.navItem:hover {
+    color: var(--foreground);
+}
+
+.active {
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.walletButton {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--foreground);
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.walletButton:hover:not(:disabled) {
+    background: #f4f4f5;
+    border-color: var(--text-secondary);
+}
+
+.walletButton:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.depositBtn {
+    background-color: #3b82f6;
+    /* Blue deposit button as seen in image 2 top right */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
