@@ -1,8 +1,11 @@
 import { createClient } from "genlayer-js";
-import { testnetBradbury } from "genlayer-js/chains";
+import { studionet, testnetBradbury } from "genlayer-js/chains";
+
+// Use studionet for demo, testnetBradbury for production
+const CHAIN = process.env.NEXT_PUBLIC_GENLAYER_NETWORK === "bradbury" ? testnetBradbury : studionet;
 
 export function createGenLayerClient(account?: string) {
-  const config: Record<string, unknown> = { chain: testnetBradbury };
+  const config: Record<string, unknown> = { chain: CHAIN };
   if (account) {
     config.account = account as `0x${string}`;
   }
